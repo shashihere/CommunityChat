@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title updated -->
+    <title>CommunityLink Chat - Find Resources</title>
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/6209/6209862.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Using Poppins font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Script remains the same -->
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- Header structure remains -->
+    <div class="header">
+      <div class="header-left">
+        <button class="sidebar-toggle" id="sidebar-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 15px;">
+            <i class="fas fa-people-group"></i>
+            <h1>CommunityLink</h1>
+        </a>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <!-- Removed placeholder <p> -->
+      </div>
+    </div>
+
+    <!-- Main layout structure remains -->
+    <div class="main">
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+          <button class="new-chat-btn" id="new-chat">
+            <i class="fas fa-plus-circle"></i> <!-- Icon changed -->
+            <span>New Search</span> <!-- Text changed -->
+          </button>
+
+          <h3 class="history-title">
+            <i class="fas fa-history"></i>
+            <span>Search History</span>
+          </h3>
+
+          <div id="history"></div>
+
+          <button class="clear-history-btn" id="clear-history">
+            <i class="fas fa-trash-alt"></i>
+            <span>Clear History</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="chat-area">
+        <div class="chat-header">
+          <h2 class="chat-title">
+            <i class="fas fa-comments"></i> <!-- Icon changed -->
+            <span>Resource Finder Chat</span> <!-- Title changed -->
+          </h2>
+          <div class="chat-actions">
+            <button
+              class="action-btn"
+              id="export-chat"
+              title="Export Search Results"
+            >
+              <i class="fas fa-download"></i>
+            </button>
+            <button
+              class="action-btn"
+              id="compare-resources"
+              title="Compare Resources"
+            >
+              <i class="fas fa-exchange-alt"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <!-- Empty state structure remains, content updated -->
+          <div class="empty-state" id="empty-state">
+            <div class="empty-icon">
+              <i class="fas fa-search-location"></i> <!-- Icon changed -->
+            </div>
+            <h2>Welcome to CommunityLink Chat</h2>
+            <p>Ask me to find community resources near you.</p>
+            <div class="feature-list">
+              <div class="feature-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>"Food banks in [City]"</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-info-circle"></i>
+                <span>"Mental health services"</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-home"></i>
+                <span>"Shelters near downtown"</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>"Compare [Resource A] vs [Resource B]"</span>
+              </div>
+            </div>
+            <p class="start-prompt">
+              How can I help you find support today?
+            </p>
+          </div>
+        </div>
+
+        <div class="chat-input-container">
+          <input
+            type="text"
+            id="user-input"
+            class="chat-input"
+            placeholder="Ask about resources, e.g., 'Healthcare clinics in Springfield'..."
+          />
+          <button id="send-btn" class="send-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals structure remains the same -->
+    <div class="modal-overlay" id="compare-modal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Compare Resources</h3>
+          <button class="modal-close" id="compare-modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Enter the names of two resources to compare their services, hours, and features side-by-side.
+          </p>
+          <div class="modal-input-group">
+            <label for="product-a">Resource 1</label> <!-- Label changed -->
+            <input
+              type="text"
+              id="product-a"
+              class="modal-input"
+              placeholder="e.g., City Food Bank"
+            />
+          </div>
+          <div class="modal-input-group">
+            <label for="product-b">Resource 2</label> <!-- Label changed -->
+            <input
+              type="text"
+              id="product-b"
+              class="modal-input"
+              placeholder="e.g., Community Pantry"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn modal-btn-secondary" id="compare-cancel">
+            Cancel
+          </button>
+          <button class="modal-btn modal-btn-primary" id="compare-submit">
+            Compare Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="resource-modal">
+      <div class="modal resource-detail-modal">
+        <div class="modal-header">
+          <h3 class="modal-title" id="resource-title">Resource Details</h3> <!-- Title changed -->
+          <button class="modal-close" id="resource-modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="resource-image-container">
+            <img
+              id="resource-image"
+              src=""
+              alt="Resource Image"
+              class="resource-image"
+            />
+          </div>
+          <div class="resource-info">
+            <div class="resource-meta">
+              <span id="resource-type" class="resource-type"></span>
+              <span id="resource-hours" class="resource-hours"></span>
+              <span id="resource-phone" class="resource-phone"></span>
+            </div>
+            <div class="resource-categories" id="resource-categories"></div>
+            <p id="resource-description" class="resource-description"></p>
+            <div class="resource-services">
+              <h4><i class="fas fa-concierge-bell"></i> Services Offered</h4> <!-- Added icon -->
+              <p id="resource-services-list"></p>
+            </div>
+            <div class="resource-eligibility">
+              <h4><i class="fas fa-check-circle"></i> Eligibility</h4> <!-- Added icon -->
+              <p id="resource-eligibility-info"></p>
+            </div>
+            <!-- Hidden div for address remains -->
+            <div id="resource-address" style="display: none;"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn modal-btn-secondary" id="resource-directions">
+            <i class="fas fa-directions"></i> Get Directions
+          </button>
+          <button class="modal-btn modal-btn-primary" id="resource-contact">
+            <i class="fas fa-phone-alt"></i> Contact
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

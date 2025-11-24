@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityLink - Find Local Resources</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6209/6209862.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styles specific to the landing page */
+        body.landing {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .landing-header {
+            background: linear-gradient(135deg, #00BCD4, #0097A7);
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .landing-header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .landing-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+        .landing-nav a:hover {
+            opacity: 0.8;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=1600') no-repeat center center/cover;
+            background-color: rgba(0, 188, 212, 0.7); /* Tint */
+            background-blend-mode: multiply;
+            color: white;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        .cta-button {
+            background-color: #FF9800; /* Accent color */
+            color: white;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+        }
+        .cta-button:hover {
+            background-color: #FB8C00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+        }
+        .features {
+            padding: 60px 5%;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        .features h3 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #0097A7;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .feature {
+            background-color: #f0f4f8;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        .feature i {
+            font-size: 36px;
+            color: #00BCD4;
+            margin-bottom: 15px;
+        }
+        .feature h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #00796B;
+        }
+        .landing-footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto; /* Pushes footer to bottom */
+            font-size: 14px;
+        }
+         @media (max-width: 768px) {
+            .landing-header h1 { font-size: 24px; }
+            .landing-nav { display: none; /* Simple hide for demo */ }
+            .hero h2 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .features h3 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body class="landing">
+
+    <header class="landing-header">
+        <h1><i class="fas fa-people-group"></i> CommunityLink</h1>
+        <nav class="landing-nav">
+            <a href="#features">Features</a>
+            <a href="chatbot.html">Launch Chatbot</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Find Community Support, Instantly.</h2>
+            <p>Connect with local resources like food banks, shelters, healthcare services, and more using our intelligent chatbot.</p>
+            <a href="chatbot.html" class="cta-button">
+                <i class="fas fa-rocket"></i> Launch CommunityLink
+            </a>
+        </section>
+
+        <section class="features" id="features">
+            <h3>How CommunityLink Helps</h3>
+            <div class="feature-grid">
+                <div class="feature">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h4>Local Resource Discovery</h4>
+                    <p>Easily find services available in your specific city or neighborhood.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-info-circle"></i>
+                    <h4>Detailed Information</h4>
+                    <p>Get hours, contact details, services offered, and eligibility requirements.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-comments"></i>
+                    <h4>Conversational Interface</h4>
+                    <p>Just ask what you need in plain language, like talking to a helpful guide.</p>
+                </div>
+                 <div class="feature">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h4>Compare Options</h4>
+                    <p>Analyze differences between resources to find the best fit for your needs.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        &copy; 2025 CommunityLink. All rights reserved.
+    </footer>
+
+</body>
+</html>
