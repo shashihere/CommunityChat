@@ -1,4 +1,4 @@
-const GEMINI_API_KEY = "AIzaSyBrMzN67NiIiqVElPxwGzuZWdUqEcJKup4";
+const GEMINI_API_KEY = "";
 const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 const ALLOWED_KEYWORDS = [
   "resource", "community", "service", "help", "assistance", "support",
